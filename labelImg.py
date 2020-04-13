@@ -732,6 +732,8 @@ class MainWindow(QMainWindow, WindowMixin):
         self.actions.shapeFillColor.setEnabled(selected)
 
     def addLabel(self, shape):
+        if shape is None:
+            return
         shape.paintLabel = self.displayLabelOption.isChecked()
         item = HashableQListWidgetItem(shape.label)
         item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
